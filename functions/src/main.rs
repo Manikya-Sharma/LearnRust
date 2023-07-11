@@ -1,29 +1,23 @@
 fn main() {
-    println!("Hello, world!");
     another_function(5);
-
-    print_labeled_measurements(5, 'h');
-
+    print_labelled_measurement(5, 'h');
     let y = {
         let x = 3;
         x + 1
     };
     println!("The value of y is {y}");
-
-    let f = five();
-    println!("Five is {f}");
-
-    let pf = plus_one(f);
-    println!("Plus one: {pf}");
+    let x = five();
+    println!("The value of x is {x}");
+    let p1 = plus_one(5);
+    println!("The value of p1 is {p1}");
 }
 
 fn another_function(x: i32) {
-    println!("Another function.");
-    println!("The value of x is {x}");
+    println!("THe value of x is {x}");
 }
 
-fn print_labeled_measurements(value: u32, unit_label: char) {
-    println!("The measurement is {value}{unit_label}");
+fn print_labelled_measurement(value: i32, unit_label: char) {
+    println!("The measured value is {value}{unit_label}");
 }
 
 fn five() -> i32 {

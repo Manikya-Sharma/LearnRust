@@ -1,44 +1,40 @@
-use std::vec::Splice;
-
 fn main() {
-    // let c:Vec<i32> = Vec::new();
-    // let v=vec!([1,2,3]);
+    // declaring
+    let mut v: Vec<i32> = Vec::new();
+    let mut v2 = vec![1, 2, 3];
+    // adding elements
+    v2.push(5);
+    v.push(3);
+    // accessing
+    let third: &i32 = &v2[2];
+    println!("Third ELement: {third}");
 
-    {
-        let mut v = Vec::new();
-        v.push(5);
-        v.push(6);
-        v.push(7);
-        v.push(8);
-
-        let third: &i32 = &v[2];
-        println!("The third element is {third}");
-        let third: Option<&i32> = v.get(2);
-        match third {
-            Some(third) => println!("The third element is {third}"),
-            None => println!("There is no third element"),
-        }
+    let third: Option<&i32> = v.get(2);
+    match third {
+        Some(value) => println!("Value is {value}"),
+        None => println!("There is no element"),
     }
-    // let mut v = vec![[100, 32, 57]];
-    // for x in &mut v {
-    //     println!("{x}");
-    // }
-
-    // for i in &mut v {
-    //     *i += 50; //Add 50 to each element
-    // }
-
-    // for y in &mut v {
-    //     println!("{y}");
-    // }
-
-    enum SpreadsheetCell {
-        Int(i32),
-        Float(f64),
-        Text(String),
+    for i in &v2 {
+        println!("{i}");
     }
+    let mut v3 = vec![2, 3, 6];
+    for i in &mut v3 {
+        *i *= 2;
+    }
+    for i in &v3 {
+        print!("{i}, ");
+    }
+    let row = vec![
+        SpreadSheetCell::Int(3),
+        SpreadSheetCell::Float(10.12),
+        SpreadSheetCell::Text(String::from("blue")),
+    ];
+    println!("{:?}", row);
+}
 
-    let row = vec![SpreadsheetCell::Int(3),
-    SpreadsheetCell::Text(String::from("blue")),
-    SpreadsheetCell::Float(10.12)];
+#[derive(Debug)]
+enum SpreadSheetCell {
+    Int(i32),
+    Float(f64),
+    Text(String),
 }
